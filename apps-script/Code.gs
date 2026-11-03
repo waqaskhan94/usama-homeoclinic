@@ -5,7 +5,7 @@
  * It receives the website's appointment and call-back forms and the "Book Now on WhatsApp" leads,
  * saves each kind to its own tab, and sends an email alert to the Google account that owns the script.
  *
- * Tabs created automatically:  "Appointments", "Call Backs" and "WhatsApp Leads".
+ * Tabs created automatically:  "Appointments", "Call Backs", "WhatsApp Leads" and "Phone Call Leads".
  */
 
 const CONFIG = {
@@ -20,12 +20,14 @@ const CONFIG = {
   APPOINTMENT_TAB: "Appointments",
   CALLBACK_TAB: "Call Backs",
   LEAD_TAB: "WhatsApp Leads",
+  CALL_LEAD_TAB: "Phone Call Leads",
 };
 
 const HEADERS = {
   appointment: ["Received (PKT)", "Name", "Phone", "Visit Type", "Preferred Date", "Preferred Time", "For Child / Family", "Message", "Came From", "Page", "Status"],
   callback: ["Received (PKT)", "Name", "Phone", "For Child / Family", "Message", "Came From", "Page", "Status"],
   lead: ["Received (PKT)", "Interested In", "Page", "Came From", "Link", "Status"],
+  callLead: ["Received (PKT)", "Contact Clicked", "Page", "Came From", "Link", "Status"],
 };
 
 /** Website calls this (POST). */
@@ -43,7 +45,7 @@ function doPost(e) {
   d.submittedAt = nowPkt();                                               // server time, 12-hour clock
   if (d.type !== "appointment" && d.type !== "callback" && d.type !== "lead") return reply({ ok: false, error: "Unknown form" });
   if (d.type === "lead") {
-    if (d.interest !== "Appointment Request" && d.interest !== "Online Consultation" && d.interest !== "Clinic Appointment") return reply({ ok: false, error: "Unknown lead" });
+    if (d.interest !== "Appointment Request" && d.interest !== "Online Consultation" && d.interest !== "Clinic Appointment" && d.interest !== "Phone Call") return reply({ ok: false, error: "Unknown lead" });
   } else if (d.name.length < 2 || d.phone.replace(/\D/g, "").length < 10) {
     return reply({ ok: false, error: "Missing name or phone" });
   }
@@ -81,7 +83,8 @@ function doGet() {
 
 function saveRow(d) {
   if (d.type === "lead") {
-    const leadSheet = getTab(CONFIG.LEAD_TAB, HEADERS.lead);
+    const isCall = d.interest === "Phone Call";
+    const leadSheet = isCall ? getTab(CONFIG.CALL_LEAD_TAB, HEADERS.callLead) : getTab(CONFIG.LEAD_TAB, HEADERS.lead);
     const leadRow = [d.submittedAt, d.interest, d.page, d.referrer, d.url, "New"];
     const leadTarget = leadSheet.getRange(leadSheet.getLastRow() + 1, 1, 1, leadRow.length);
     leadTarget.setNumberFormat("@");
@@ -132,6 +135,7 @@ function setup() {
   getTab(CONFIG.APPOINTMENT_TAB, HEADERS.appointment);
   getTab(CONFIG.CALLBACK_TAB, HEADERS.callback);
   getTab(CONFIG.LEAD_TAB, HEADERS.lead);
+  getTab(CONFIG.CALL_LEAD_TAB, HEADERS.callLead);
 }
 
 /* ---------- Email ---------- */
@@ -151,27 +155,29 @@ function sendAlert(d) {
   });
 }
 
-/** Alert for someone who pressed "Book Now on WhatsApp" in the website popup (same look as the form alerts). */
+/** Alert for someone who pressed "Book Now on WhatsApp" or tapped the phone number on the website (same look as the form alerts). */
 function sendLeadAlert(d) {
   const to = CONFIG.ALERT_TO || Session.getEffectiveUser().getEmail();
+  const isCall = d.interest === "Phone Call";
   MailApp.sendEmail({
     to: to,
-    subject: "💬 New WhatsApp Click (" + d.interest + ") — " + CONFIG.SITE_NAME,
+    subject: isCall ? "📞 New Phone Call Click — " + CONFIG.SITE_NAME : "💬 New WhatsApp Click (" + d.interest + ") — " + CONFIG.SITE_NAME,
     htmlBody: leadHtml(d),
     body: [
-      "New WhatsApp click",
+      isCall ? "New phone call click" : "New WhatsApp click",
       "Contact clicked: " + d.interest,
       "Page: " + d.page,
       "Came from: " + d.referrer,
       "Link: " + d.url,
       "Clicked: " + d.submittedAt,
-      "Note: this only means the visitor opened WhatsApp. The message they send is not captured here.",
+      isCall ? "Note: this only means the visitor tapped the phone number. Whether the call connected is not captured here." : "Note: this only means the visitor opened WhatsApp. The message they send is not captured here.",
     ].join("\n"),
     name: CONFIG.SITE_NAME + " Website",
   });
 }
 
 function leadHtml(d) {
+  const isCall = d.interest === "Phone Call";
   const brand = CONFIG.BRAND_COLOR;
   const h = function (text) {
     return '<h3 style="margin:22px 0 8px;font-size:17px;color:' + brand + ';border-bottom:1px solid #e3e3e3;padding-bottom:6px;font-family:Arial,Helvetica,sans-serif;">' + esc(text) + "</h3>";
@@ -181,10 +187,11 @@ function leadHtml(d) {
   };
 
   let body = "";
-  body += '<p style="margin:0 0 4px;font-size:14px;line-height:1.5;color:#222;font-family:Arial,Helvetica,sans-serif;">💬 Someone clicked <b>Book Now on WhatsApp</b> on the ' +
+  body += '<p style="margin:0 0 4px;font-size:14px;line-height:1.5;color:#222;font-family:Arial,Helvetica,sans-serif;">' +
+    (isCall ? "📞 Someone tapped the <b>phone number</b> on the " : "💬 Someone clicked <b>Book Now on WhatsApp</b> on the ") +
     esc(CONFIG.SITE_NAME) + " website.</p>";
 
-  body += h("WhatsApp Contact");
+  body += h(isCall ? "Phone Contact" : "WhatsApp Contact");
   body += line("Contact Clicked", esc(d.interest));
 
   body += h("Where");
@@ -194,7 +201,7 @@ function leadHtml(d) {
 
   body += '<hr style="border:0;border-top:1px solid #e3e3e3;margin:24px 0 12px;">' +
     '<p style="margin:0;font-size:12px;line-height:1.5;color:#888;font-family:Arial,Helvetica,sans-serif;">Clicked: ' + esc(d.submittedAt) + "<br>" +
-    "Note: this only means the visitor opened WhatsApp. The message they send is not captured here.<br>" +
+    (isCall ? "Note: this only means the visitor tapped the phone number. Whether the call connected is not captured here.<br>" : "Note: this only means the visitor opened WhatsApp. The message they send is not captured here.<br>") +
     "(This alert was sent automatically from the " + esc(CONFIG.SITE_NAME) + " website.)</p>";
 
   return '<div style="max-width:540px;margin:0;font-family:Arial,Helvetica,sans-serif;">' +

@@ -698,13 +698,13 @@ function enhanceSelect(sel) {
   }
 
   /* Save the lead to the Google Sheet (fire and forget). WhatsApp is opened straight after, in the same click. */
-  function sendLead() {
+  function sendLead(interest) {
     if (!CLINIC.sheetEndpoint) return;
     let from = "Direct";
     try { if (document.referrer) from = new URL(document.referrer).hostname.replace(/^www\./, ""); } catch (e) { /* keep Direct */ }
     const payload = {
       type: "lead",
-      interest: "Appointment Request",
+      interest: interest || "Appointment Request",
       page: document.title,
       url: location.href,
       referrer: from,
@@ -716,6 +716,12 @@ function enhanceSelect(sel) {
   }
 
   fab.addEventListener("click", open);
+
+  /* Tapping a phone number starts a call as usual, and also saves a "Phone Call" lead. */
+  document.addEventListener("click", function (e) {
+    const link = e.target.closest && e.target.closest('a[href^="tel:"]');
+    if (link) sendLead("Phone Call");
+  });
 
   /* Every WhatsApp button or link on the site opens this popup first. The wa.me link stays in the HTML as a fallback if scripts fail. */
   document.addEventListener("click", function (e) {
@@ -729,7 +735,7 @@ function enhanceSelect(sel) {
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !modal.hidden) close(); });
   waBtn.addEventListener("click", function () {
     const url = "https://wa.me/" + CLINIC.whatsapp + "?text=" + encodeURIComponent(MESSAGE);
-    sendLead();
+    sendLead("Appointment Request");
     /* A real link click in a new tab: this page stays where it is. (window.open with "noopener" returns null, so it cannot be used to detect a blocked tab.) */
     const a = document.createElement("a");
     a.href = url; a.target = "_blank"; a.rel = "noopener noreferrer"; a.setAttribute("data-wa-direct", "");
