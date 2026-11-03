@@ -1,8 +1,8 @@
-/* Homeo Heal — shared behaviour */
+/* Usama Homeo Clinic — shared behaviour */
 
 /* ---------- Edit these for your clinic ---------- */
 const CLINIC = {
-  name: "Homeo Heal",
+  name: "Usama Homeo Clinic",
   // Preferred: the Google Apps Script web app URL (see apps-script/Code.gs). It saves each request to the
   // Google Sheet (tabs "Appointments" and "Call Backs") and sends the branded email alert.
   sheetEndpoint: "https://script.google.com/macros/s/AKfycbwxfTLKupC4rNfu2QxrVsYiu1jcIu_S_ijpqTjhLltEIgizHhY_lv4OHsokBmkPPEvA7Q/exec",
@@ -494,7 +494,7 @@ function enhanceSelect(sel) {
     if (!document.referrer) return "Direct";
     try {
       const host = new URL(document.referrer).hostname.replace(/^www\./, "");
-      if (host === location.hostname) return "Homeo Heal website (internal)";
+      if (host === location.hostname) return "Usama Homeo Clinic website (internal)";
       if (/(^|\.)google\./.test(host)) return "Google Search";
       if (/(^|\.)bing\./.test(host)) return "Bing Search";
       if (/(^|\.)(facebook|fb)\./.test(host)) return "Facebook";
@@ -676,7 +676,7 @@ function enhanceSelect(sel) {
   const modal = document.getElementById("bk-modal");
   if (!fab || !modal) return;
   const waBtn = document.getElementById("bk-wa");
-  const MESSAGE = "Hello Homeo Heal, I would like to book an appointment with Dr. Wahid-ur-Rehman (online consultation or clinic visit).";
+  const MESSAGE = "Hello Usama Homeo Clinic, I would like to book an appointment with Dr. Wahid-ur-Rehman (online consultation or clinic visit).";
   const onBookingPage = !!document.getElementById("tab-callback");
   let lastFocus = null;
 

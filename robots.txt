@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /apps-script/
+Disallow: /tools/
 
-Sitemap: https://homeo-heal.pages.dev/sitemap.xml
+Sitemap: https://usama-homeoclinic.pages.dev/sitemap.xml

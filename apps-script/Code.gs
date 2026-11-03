@@ -1,5 +1,5 @@
 /**
- * Homeo Heal — website form intake (Google Apps Script)
+ * Usama Homeo Clinic — website form intake (Google Apps Script)
  *
  * Paste this into Extensions > Apps Script of the Google Sheet that should store the requests.
  * It receives the website's appointment and call-back forms and the "Book Now on WhatsApp" leads,
@@ -12,10 +12,10 @@ const CONFIG = {
   SHEET_ID: "",                                   // leave empty if this script was opened from the sheet (Extensions > Apps Script).
                                                   // Otherwise paste the sheet's ID: the long text between /d/ and /edit in its address.
   ALERT_TO: "",                                   // leave empty to alert the Google account that owns this script
-  SITE_NAME: "Homeo Heal",
+  SITE_NAME: "Usama Homeo Clinic",
   TAGLINE: "Individual care, natural approach",
-  SITE_URL: "https://homeo-heal.pages.dev",
-  LOGO_URL: "https://homeo-heal.pages.dev/assets/images/logo-email.png",
+  SITE_URL: "https://usama-homeoclinic.pages.dev",
+  LOGO_URL: "https://usama-homeoclinic.pages.dev/assets/images/logo-email.png",
   BRAND_COLOR: "#3A5C66",
   APPOINTMENT_TAB: "Appointments",
   CALLBACK_TAB: "Call Backs",
