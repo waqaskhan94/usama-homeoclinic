@@ -183,7 +183,7 @@ const footer = () => `
         <span class="foot-head">Contact</span>
         <p>${svg("phone")}<span><strong>Call/Text:</strong> <a href="tel:${TEL}">${PHONE}</a></span></p>
         <p>${svg("chat")}<span><strong>WhatsApp:</strong> <a href="https://wa.me/${TEL.replace("+", "")}" rel="noopener">${PHONE}</a></span></p>
-        <p>${svg("pin")}<span><strong>Clinic:</strong> Rawalpindi, Punjab, Pakistan</span></p>
+        <p>${svg("pin")}<span><strong>Clinic:</strong> Mohra Chaper Stop, Chakri Road, Rawalpindi</span></p>
         <p>${svg("clock")}<span><strong>Clinic Hours:</strong><br>Monday to Sunday<br>Morning: 10 AM to 1 PM<br>Evening (winter): 4 PM to 9 PM<br>Evening (summer): 6 PM to 10 PM<br>Friday: closed</span></p>
       </div>
       <div>
@@ -329,7 +329,7 @@ write("index.html", headHtml({
   title: "Homeopathic Doctor Rawalpindi & Online | Usama Homeo Clinic",
   desc: "Homeopathic doctor in Rawalpindi with online video consultation across Pakistan. 20 to 25 minute first visit with Dr. Wahid-ur-Rehman, BHMS.",
   extra: `
-<script type="application/ld+json">{"@context":"https://schema.org","@type":["MedicalBusiness","LocalBusiness"],"name":"Usama Homeo Clinic","description":"Homeopathic clinic in Rawalpindi with in-clinic and online consultations across Pakistan.","url":"https://usama-homeoclinic.pages.dev/","telephone":"+923009813872","medicalSpecialty":"Homeopathy","image":"https://usama-homeoclinic.pages.dev/assets/images/remedies-bottles.jpg","address":{"@type":"PostalAddress","addressLocality":"Rawalpindi","addressRegion":"Punjab","addressCountry":"PK"},"areaServed":["Rawalpindi","Islamabad","Pakistan"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday"],"opens":"10:00","closes":"13:00"}]}</script>`,
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["MedicalBusiness","LocalBusiness"],"name":"Usama Homeo Clinic","description":"Homeopathic clinic in Rawalpindi with in-clinic and online consultations across Pakistan.","url":"https://usama-homeoclinic.pages.dev/","telephone":"+923009813872","medicalSpecialty":"Homeopathy","image":"https://usama-homeoclinic.pages.dev/assets/images/remedies-bottles.jpg","address":{"@type":"PostalAddress","streetAddress":"Mohra Chaper Stop, Chakri Road","addressLocality":"Rawalpindi","addressRegion":"Punjab","addressCountry":"PK"},"areaServed":["Rawalpindi","Islamabad","Pakistan"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday"],"opens":"10:00","closes":"13:00"}]}</script>`,
 }) + header("index.html") + `
 <main id="top">
 
@@ -519,7 +519,7 @@ write("about.html", headHtml({
   title: "Dr. Wahid-ur-Rehman, BHMS | Homeopath in Rawalpindi",
   desc: "Meet Dr. Wahid-ur-Rehman, BHMS, a homeopathic physician with 10+ years of practice in Rawalpindi. Clinic and online consultations for adults and children.",
   extra: `
-<script type="application/ld+json">{"@context":"https://schema.org","@type":["Physician","Person"],"name":"Dr. Wahid-ur-Rehman","honorificPrefix":"Dr.","knowsLanguage":["Urdu","English","Punjabi","Pashto"],"image":"https://usama-homeoclinic.pages.dev/assets/images/doctor-wahid.jpg","jobTitle":"Homeopathic Physician","description":"Homeopathic physician (BHMS) with over ten years of practice in Rawalpindi, seeing adults and children in clinic and online.","hasCredential":{"@type":"EducationalOccupationalCredential","credentialCategory":"degree","name":"BHMS"},"medicalSpecialty":"Homeopathy","worksFor":{"@type":"MedicalBusiness","name":"Usama Homeo Clinic","url":"https://usama-homeoclinic.pages.dev/"},"workLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Rawalpindi","addressCountry":"PK"}},"url":"https://usama-homeoclinic.pages.dev/about"}</script>`,
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["Physician","Person"],"name":"Dr. Wahid-ur-Rehman","honorificPrefix":"Dr.","knowsLanguage":["Urdu","English","Punjabi","Pashto"],"image":"https://usama-homeoclinic.pages.dev/assets/images/doctor-wahid.jpg","jobTitle":"Homeopathic Physician","description":"Homeopathic physician (BHMS) with over ten years of practice in Rawalpindi, seeing adults and children in clinic and online.","hasCredential":{"@type":"EducationalOccupationalCredential","credentialCategory":"degree","name":"BHMS"},"medicalSpecialty":"Homeopathy","worksFor":{"@type":"MedicalBusiness","name":"Usama Homeo Clinic","url":"https://usama-homeoclinic.pages.dev/"},"workLocation":{"@type":"Place","address":{"@type":"PostalAddress","streetAddress":"Mohra Chaper Stop, Chakri Road","addressLocality":"Rawalpindi","addressCountry":"PK"}},"url":"https://usama-homeoclinic.pages.dev/about"}</script>`,
 }) + header("about.html") + `
 <main id="top">
 ${pageHero("About Us", "Dr. Wahid-ur-Rehman, Homeopathic Physician in Rawalpindi", "A homeopathic clinic built around time, listening and honest advice.")}
@@ -763,7 +763,7 @@ ${pageHero("Contact", "Contact Us", "Message us on WhatsApp or book online. We r
       <div class="contact-grid">
         <article class="contact-card"><div class="ico">${svg("chat")}</div><h3>WhatsApp</h3><p><a href="${WA}" rel="noopener">Message us</a></p></article>
         <article class="contact-card"><div class="ico">${svg("video")}</div><h3>Online Consultations</h3><p>By video, anywhere in Pakistan and overseas</p></article>
-        <article class="contact-card"><div class="ico">${svg("pin")}</div><h3>Visit</h3><p>Usama Homeo Clinic<br>Rawalpindi, Punjab, Pakistan</p></article>
+        <article class="contact-card"><div class="ico">${svg("pin")}</div><h3>Visit</h3><p>Usama Homeo Clinic<br>Mohra Chaper Stop, Chakri Road, Rawalpindi</p></article>
       </div>
     </div>
   </section>
@@ -912,7 +912,7 @@ write("request-an-appointment.html", headHtml({
           <h3>Prefer to talk?</h3>
           <ul class="side-contact">
             <li>${svg("chat")}<span><a href="${WA}" rel="noopener">Message on WhatsApp</a></span></li>
-            <li>${svg("pin")}<span>Rawalpindi, Punjab, Pakistan</span></li>
+            <li>${svg("pin")}<span>Mohra Chaper Stop, Chakri Road, Rawalpindi</span></li>
             <li>${svg("clock")}<span>Monday to Sunday<br>Morning: 10 AM to 1 PM<br>Evening (winter): 4 PM to 9 PM<br>Evening (summer): 6 PM to 10 PM<br>Friday: closed</span></li>
           </ul>
         </div>
