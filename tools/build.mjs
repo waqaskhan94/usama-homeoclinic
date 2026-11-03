@@ -23,6 +23,8 @@ const P = {
   pin: '<path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',
   clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
   chat: '<path d="M4 20l1.3-4A8 8 0 1 1 8.5 19L4 20z"/><path d="M9 10c.5 2.5 2.5 4.5 5 5l1.5-1.5-2-1-1 .8c-.8-.4-1.6-1.2-2-2l.8-1-1-2z"/>',
+  pulse: '<path d="M3 12h4l2-5 4 10 2-5h6"/>',
+  bolt: '<path d="M13 3L5 14h6l-1 7 8-11h-6l1-7z"/>',
   skin: '<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/>',
   wind: '<path d="M3 9h11a3 3 0 1 0-3-3"/><path d="M3 14h15a3 3 0 1 1-3 3"/><path d="M3 19h6"/>',
   female: '<circle cx="12" cy="8" r="5"/><path d="M12 13v8M9 18h6"/>',
@@ -58,22 +60,24 @@ const NAV = [
 ];
 
 const SERVICES = [
-  { icon: "kidney", t: "Kidney Stones", d: "Dr. Wahid-ur-Rehman has a special interest in kidney and urinary stone complaints. We look at your history, water and diet habits, and any scans or reports you already have.", b: ["Recurring kidney or urinary stone complaints", "Flank and lower-back pain", "Burning or painful urination", "Follow-up alongside your scans and reports"] },
+  { icon: "kidney", t: "Kidney Stones", d: "Dr. Wahid-ur-Rehman has a special interest in kidney and urinary stone complaints. We look at your history, water and diet habits, and any scans or reports you already have. Bladder complaints are also seen.", b: ["Recurring kidney or urinary stone complaints", "Flank and lower-back pain", "Burning urination and bladder complaints", "Follow-up alongside your scans and reports"] },
   { icon: "plus", t: "Piles (Haemorrhoids)", d: "Piles are closely tied to constipation, diet and daily routine. We look at the whole picture and give simple habit advice alongside your remedy.", b: ["Painful or bleeding piles", "Constipation and straining", "Itching and discomfort", "Diet and routine guidance"] },
   { icon: "skin", t: "Skin Conditions", d: "Eczema, acne, recurring rashes and dry, irritated skin often have triggers outside the skin itself, such as stress, diet and sleep.", b: ["Eczema and itchy, dry skin", "Acne and recurring breakouts", "Fungal and recurring rashes", "Hair fall and scalp problems"] },
-  { icon: "wind", t: "Allergies & Breathing", d: "Hay fever, a stubborn cough, sinus trouble and frequent colds are common reasons people visit us.", b: ["Seasonal and dust allergies", "Sinus congestion and headaches", "Recurring cough and colds", "Mild breathing complaints"] },
-  { icon: "female", t: "Women’s Health", d: "Irregular or painful cycles and hormonal changes can be discussed openly in a private consultation.", b: ["Irregular or painful periods", "Hormonal changes", "Fatigue and low energy", "Support through life stages"] },
+  { icon: "wind", t: "Allergies & Breathing", d: "Asthma, hay fever, a stubborn cough, sinus trouble and frequent colds are common reasons people visit us.", b: ["Seasonal and dust allergies", "Sinus congestion and headaches", "Recurring cough and colds", "Asthma and breathing difficulty"] },
+  { icon: "female", t: "Women’s Health", d: "Irregular or painful cycles, leucorrhea and hormonal changes can be discussed openly in a private consultation.", b: ["Irregular or painful periods", "Hormonal changes", "Leucorrhea (white discharge)", "Support through life stages"] },
   { icon: "child", t: "Children’s Health", d: "Children are seen with a parent or guardian. Visits are kept calm, and every remedy is explained in plain words.", b: ["Recurring colds and coughs", "Tonsils and ear complaints", "Appetite and sleep concerns", "Skin and tummy troubles"] },
-  { icon: "apple", t: "Digestive Health", d: "Acidity, bloating and irregular bowels are closely tied to routine, food and stress, so we look at the whole picture.", b: ["Acidity and heartburn", "Bloating and gas", "Constipation or loose motions", "Poor appetite"] },
+  { icon: "apple", t: "Digestive Health", d: "Gastric trouble, acidity, burning, bloating and irregular bowels are closely tied to routine, food and stress, so we look at the whole picture.", b: ["Gastric trouble and stomach gas", "Acidity, burning and heartburn", "Bloating", "Constipation or loose motions", "Poor appetite"] },
   { icon: "moon", t: "Stress, Sleep & Mood", d: "Long hours, worry and poor sleep take a toll. We take time to understand what is going on in your daily life.", b: ["Stress and tension", "Trouble falling asleep", "Low mood and irritability", "Exam and work pressure"] },
   { icon: "head", t: "Headache & Migraine", d: "We note when headaches come, what triggers them and what eases them, then choose a remedy that fits the pattern.", b: ["Recurring headaches", "Migraine patterns", "Tension headaches", "Sinus-related headaches"] },
   { icon: "bone", t: "Joint & Muscle Pain", d: "Stiffness and aches are discussed alongside your routine, sleep and past injuries. We refer you onward when tests or scans are needed.", b: ["Joint stiffness and aches", "Back and neck pain", "Muscle strain", "Pain that changes with weather"] },
+  { icon: "pulse", t: "Sugar & Blood Pressure", d: "Diabetes (sugar) and high blood pressure need steady, long-term care. Homeopathy is offered alongside your regular tests and any medicines your physician has advised.", b: ["Diabetes (sugar) support", "High or fluctuating blood pressure", "Diet and routine guidance", "Follow-up alongside your lab reports"] },
+  { icon: "bolt", t: "Sexual & Physical Weakness", d: "These concerns are discussed privately and without judgement. We look at stress, sleep, diet and general health together.", b: ["Sexual weakness", "General physical weakness and low energy", "Stress-related causes", "Private, respectful consultation"] },
 ];
 
 const FAQ = {
   "About homeopathy": [
     ["What is homeopathy and how does it work?", "Homeopathy is a system of medicine that uses highly diluted natural substances, chosen to match the whole person and not just a single symptom. Your doctor takes a detailed history so the remedy fits your body, habits and temperament."],
-    ["Which conditions do people visit you for?", "Commonly skin complaints, allergies and sinus trouble, digestive problems, kidney stone complaints, piles, women’s health concerns, headaches, joint pain, and stress or sleep difficulties, as well as recurring illnesses in children. Homeopathy is a complementary approach and does not replace emergency or specialist care."],
+    ["Which conditions do people visit you for?", "Commonly sugar (diabetes) and blood pressure, asthma, allergies and sinus trouble, skin complaints, digestive problems, gastric trouble and acidity, kidney stone and bladder complaints, piles, women’s health concerns including leucorrhea, sexual and physical weakness, headaches, joint pain, and stress or sleep difficulties, as well as recurring illnesses in children. Homeopathy is a complementary approach and does not replace emergency or specialist care."],
     ["Is homeopathic treatment suitable for children and older adults?", "Yes. Remedies are gentle and are chosen for the individual. Children are seen with a parent or guardian, and older patients are welcome to bring a family member. Please tell the doctor if the patient is pregnant or breastfeeding."],
     ["Can I take homeopathy alongside my other medicines?", "Please tell us everything you currently take. Do not stop or change prescribed medicine without speaking to the doctor who prescribed it."],
     ["Do you treat kidney stones?", "Dr. Wahid-ur-Rehman has a special interest in kidney and urinary stone complaints. Bring any ultrasound, CT or lab reports to your visit so the doctor can see your full picture. Homeopathy is a complementary approach and does not replace urgent care: go to a hospital straight away for severe pain, fever, vomiting, or if you cannot pass urine."],
@@ -180,7 +184,7 @@ const footer = () => `
         <p>${svg("phone")}<span><strong>Call/Text:</strong> <a href="tel:${TEL}">${PHONE}</a></span></p>
         <p>${svg("chat")}<span><strong>WhatsApp:</strong> <a href="https://wa.me/${TEL.replace("+", "")}" rel="noopener">${PHONE}</a></span></p>
         <p>${svg("pin")}<span><strong>Clinic:</strong> Rawalpindi, Punjab, Pakistan</span></p>
-        <p>${svg("clock")}<span><strong>Clinic Hours:</strong><br>Monday to Sunday: 10 AM to 1 PM, 5 PM to 8 PM<br>Friday: closed</span></p>
+        <p>${svg("clock")}<span><strong>Clinic Hours:</strong><br>Monday to Sunday<br>Morning: 10 AM to 1 PM<br>Evening (winter): 4 PM to 9 PM<br>Evening (summer): 6 PM to 10 PM<br>Friday: closed</span></p>
       </div>
       <div>
         <span class="foot-head">Service Areas</span>
@@ -231,7 +235,7 @@ const footer = () => `
     <div class="bk-step bk-detail">
       <img class="bk-photo" src="assets/images/doctor-wahid.jpg" alt="Dr. Wahid-ur-Rehman" width="84" height="84" loading="lazy">
       <h3>Dr. Wahid-ur-Rehman, BHMS</h3>
-      <p class="bk-desc">Book an <strong>online video consultation</strong> from anywhere in Pakistan or overseas, or a <strong>clinic appointment</strong> at our Rawalpindi clinic. The first visit takes about 20 to 25 minutes.<br><strong>Clinic Hours:</strong><br>Monday to Sunday: 10 AM to 1 PM and 5 PM to 8 PM<br>Friday: Closed<br><strong>Consultation fee: Rs. 1,000.</strong></p>
+      <p class="bk-desc">Book an <strong>online video consultation</strong> from anywhere in Pakistan or overseas, or a <strong>clinic appointment</strong> at our Rawalpindi clinic. The first visit takes about 20 to 25 minutes.<br><strong>Clinic Hours:</strong><br>Monday to Sunday<br>Morning: 10 AM to 1 PM<br>Evening (winter): 4 PM to 9 PM<br>Evening (summer): 6 PM to 10 PM<br>Friday: Closed<br><strong>Consultation fee: Rs. 1,000.</strong></p>
       <button class="bk-wa" id="bk-wa" type="button">${svg("chat")}<span>Book Now on WhatsApp</span></button>
     </div>
   </div>
@@ -325,7 +329,7 @@ write("index.html", headHtml({
   title: "Homeopathic Doctor Rawalpindi & Online | Usama Homeo Clinic",
   desc: "Homeopathic doctor in Rawalpindi with online video consultation across Pakistan. 20 to 25 minute first visit with Dr. Wahid-ur-Rehman, BHMS.",
   extra: `
-<script type="application/ld+json">{"@context":"https://schema.org","@type":["MedicalBusiness","LocalBusiness"],"name":"Usama Homeo Clinic","description":"Homeopathic clinic in Rawalpindi with in-clinic and online consultations across Pakistan.","url":"https://usama-homeoclinic.pages.dev/","telephone":"+923009813872","medicalSpecialty":"Homeopathy","image":"https://usama-homeoclinic.pages.dev/assets/images/remedies-bottles.jpg","address":{"@type":"PostalAddress","addressLocality":"Rawalpindi","addressRegion":"Punjab","addressCountry":"PK"},"areaServed":["Rawalpindi","Islamabad","Pakistan"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday"],"opens":"10:00","closes":"13:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday"],"opens":"17:00","closes":"20:00"}]}</script>`,
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["MedicalBusiness","LocalBusiness"],"name":"Usama Homeo Clinic","description":"Homeopathic clinic in Rawalpindi with in-clinic and online consultations across Pakistan.","url":"https://usama-homeoclinic.pages.dev/","telephone":"+923009813872","medicalSpecialty":"Homeopathy","image":"https://usama-homeoclinic.pages.dev/assets/images/remedies-bottles.jpg","address":{"@type":"PostalAddress","addressLocality":"Rawalpindi","addressRegion":"Punjab","addressCountry":"PK"},"areaServed":["Rawalpindi","Islamabad","Pakistan"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday"],"opens":"10:00","closes":"13:00"}]}</script>`,
 }) + header("index.html") + `
 <main id="top">
 
@@ -336,7 +340,7 @@ write("index.html", headHtml({
       <div>
         <span class="eyebrow">Homeopathic clinic in Rawalpindi</span>
         <h1>Homeopathic Doctor in Rawalpindi, With <em>Online Consultation</em> Across Pakistan</h1>
-        <p class="lead">Whether you are dealing with a long-standing skin problem, allergies, piles, kidney stone complaints, digestive trouble or stress, our registered homeopathic physician takes the time to listen. Visit our Rawalpindi clinic or consult online from anywhere in Pakistan.</p>
+        <p class="lead">Whether you are dealing with a long-standing skin problem, allergies, sugar, blood pressure, asthma, joint pain, piles, kidney stone complaints, digestive trouble or stress, our registered homeopathic physician takes the time to listen. Visit our Rawalpindi clinic or consult online from anywhere in Pakistan.</p>
         <div class="btn-row pair">
           <a class="btn btn--gold" href="${BOOK}">${lb("Request an Appointment", "Book Appointment")}</a>
           <a class="btn btn--outline" href="${WA}" rel="noopener">${lb("WhatsApp Us", "WhatsApp")}</a>
@@ -390,9 +394,9 @@ write("index.html", headHtml({
       <div class="section-head">
         <span class="eyebrow">Conditions</span>
         <h2>What We Treat</h2>
-        <p>From skin problems and piles to kidney stone complaints, stress and sleep, our doctor looks at the whole person so you can feel stronger and more comfortable in daily life. Homeopathy is a complementary approach and does not replace emergency or specialist care.</p>
+        <p>From sugar, blood pressure, asthma and joint pain to kidney stones, piles, skin problems and general weakness, our doctor looks at the whole person so you can feel stronger and more comfortable in daily life. Homeopathy is a complementary approach and does not replace emergency or specialist care.</p>
       </div>
-      <div class="cards">${SERVICES.slice(0, 9).map((s) => serviceCard(s)).join("")}
+      <div class="cards">${SERVICES.map((s) => serviceCard(s)).join("")}
       </div>
       <div class="btn-row center mt"><a class="btn" href="services.html">Explore All Services</a></div>
     </div>
@@ -561,7 +565,7 @@ ${pageHero("About Us", "Dr. Wahid-ur-Rehman, Homeopathic Physician in Rawalpindi
           <img src="assets/images/doctor-wahid.jpg" alt="Portrait of Dr. Wahid-ur-Rehman, homeopathic physician at Usama Homeo Clinic" width="160" height="160" loading="lazy">
           <h3>Dr. Wahid-ur-Rehman</h3>
           <p class="cred">BHMS, Homeopathic Physician</p>
-          <p class="bio">Dr. Wahid-ur-Rehman is the physician at Usama Homeo Clinic, with over ten years of experience in homeopathic practice in Rawalpindi. He sees adults and children with skin conditions, allergies and sinus trouble, digestive problems, kidney stone complaints, piles, women’s health concerns, headaches, joint and muscle pain, and stress or sleep difficulties.</p>
+          <p class="bio">Dr. Wahid-ur-Rehman is the physician at Usama Homeo Clinic, with over ten years of experience in homeopathic practice in Rawalpindi. He sees adults and children with sugar and blood pressure, asthma, allergies and sinus trouble, skin conditions, digestive problems, kidney stone and bladder complaints, piles, women’s health concerns, sexual and physical weakness, headaches, joint and muscle pain, and stress or sleep difficulties.</p>
           <p class="bio">Every first visit is a focused, unhurried conversation, and he explains each remedy in plain words. He also consults by video with patients across Pakistan and overseas.</p>
           <ul class="ticks">
             <li>Speaks Urdu, English, Punjabi and Pashto</li>
@@ -607,7 +611,7 @@ ${cta()}
 /* ======================= SERVICES ======================= */
 write("services.html", headHtml({
   title: "Homeopathic Treatment in Rawalpindi: Conditions We Treat",
-  desc: "Homeopathic treatment for skin problems, kidney stones, piles, allergies, migraine, joint pain and stress, in Rawalpindi and online. See conditions and book.",
+  desc: "Homeopathic treatment for sugar, blood pressure, asthma, joint pain, kidney stones, piles, skin problems and more, in Rawalpindi and online. See conditions and book.",
 }) + header("services.html") + `
 <main id="top">
 ${pageHero("Services", "Homeopathic Treatment for Common Conditions", "Homeopathic care for adults and children, chosen around the whole person.")}
@@ -617,7 +621,7 @@ ${pageHero("Services", "Homeopathic Treatment for Common Conditions", "Homeopath
       <div>
         <span class="eyebrow">Our approach</span>
         <h2>One person, one plan</h2>
-        <p style="margin-top:1rem">From kidney stones and piles to skin, joint pain, stress and sleep, our doctor helps you understand what may be behind your complaint and choose a remedy that fits you. Every visit starts with a focused, unhurried conversation.</p>
+        <p style="margin-top:1rem">From sugar, blood pressure and asthma to kidney stones, piles, skin, joint pain, weakness, stress and sleep, our doctor helps you understand what may be behind your complaint and choose a remedy that fits you. Every visit starts with a focused, unhurried conversation.</p>
         <ul class="ticks">
           <li>First visit of about 20 to 25 minutes</li>
           <li>Remedies explained in plain words</li>
@@ -769,7 +773,9 @@ ${pageHero("Contact", "Contact Us", "Message us on WhatsApp or book online. We r
       <div class="section-head"><h2>Clinic Hours</h2></div>
       <table class="hours">
         <tbody>
-          <tr><th scope="row">Monday to Sunday</th><td>10 AM to 1 PM, 5 PM to 8 PM</td></tr>
+          <tr><th scope="row">Monday to Sunday, morning</th><td>10 AM to 1 PM</td></tr>
+          <tr><th scope="row">Monday to Sunday, evening (winter)</th><td>4 PM to 9 PM</td></tr>
+          <tr><th scope="row">Monday to Sunday, evening (summer)</th><td>6 PM to 10 PM</td></tr>
           <tr><th scope="row">Friday</th><td>Closed</td></tr>
         </tbody>
       </table>
@@ -907,7 +913,7 @@ write("request-an-appointment.html", headHtml({
           <ul class="side-contact">
             <li>${svg("chat")}<span><a href="${WA}" rel="noopener">Message on WhatsApp</a></span></li>
             <li>${svg("pin")}<span>Rawalpindi, Punjab, Pakistan</span></li>
-            <li>${svg("clock")}<span>Monday to Sunday 10 AM to 1 PM, 5 PM to 8 PM<br>Friday closed</span></li>
+            <li>${svg("clock")}<span>Monday to Sunday<br>Morning: 10 AM to 1 PM<br>Evening (winter): 4 PM to 9 PM<br>Evening (summer): 6 PM to 10 PM<br>Friday: closed</span></li>
           </ul>
         </div>
       </div>
