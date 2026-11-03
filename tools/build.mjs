@@ -490,7 +490,7 @@ write("index.html", headHtml({
         <p>We combine training with compassion, so you feel supported at every stage. Our aim is simple: to help you feel better, understand your health, and make confident choices about your care.</p>
       </div>
       <div class="side-stack">
-        <figure class="photo wide"><img src="assets/images/consultation.jpg" alt="Doctor smiling while talking with a patient in a clinic room" width="1200" height="800" loading="lazy"></figure>
+        <figure class="photo wide"><img src="assets/images/remedies-shelf.jpg" alt="Tray of small labelled homeopathic remedy vials filled with white pillules" width="1200" height="800" loading="lazy"></figure>
         <figure class="photo tall"><img src="assets/images/remedies-bottles.jpg" alt="Homeopathic remedy bottles and small white pillules on a wooden table" width="1200" height="800" loading="lazy"></figure>
       </div>
     </div>
