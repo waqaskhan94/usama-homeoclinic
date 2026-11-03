@@ -318,7 +318,14 @@ const write = (file, html) => {
 <meta property="og:url" content="${SITE}${urlPath}">
 <meta property="og:site_name" content="Usama Homeo Clinic">
 <meta property="og:type" content="website">`);
-  html = html.split('content="assets/images/remedies-bottles.jpg"').join(`content="${SITE}/assets/images/remedies-bottles.jpg"`);
+  const ogImg = `${SITE}/assets/images/og-${file.replace(/.html$/, "")}.jpg`;
+  html = html.replace('<meta property="og:image" content="assets/images/remedies-bottles.jpg">',
+    `<meta property="og:image" content="${ogImg}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Usama Homeo Clinic, Rawalpindi: homeopathic care">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${ogImg}">`);
   html = html.replace(/href="(index|about|services|service-areas|faqs|reviews|contact|request-an-appointment).html(#[^"]*)?"/g, (m, p, h) => 'href="' + (p === "index" ? "/" : "/" + p) + (h || "") + '"');
   html = html.replace(/<img [^>]*src="(assets[/]images[/][a-z0-9-]+)[.]jpg"[^>]*>/g, (m, p) => '<picture><source srcset="' + p + '.avif" type="image/avif">' + m + '</picture>');
   fs.writeFileSync(OUT + file, html); console.log("wrote", file, html.length);
@@ -614,7 +621,7 @@ write("services.html", headHtml({
   desc: "Homeopathic treatment for sugar, blood pressure, asthma, joint pain, kidney stones, piles, skin problems and more, in Rawalpindi and online. See conditions and book.",
 }) + header("services.html") + `
 <main id="top">
-${pageHero("Services", "Homeopathic Treatment for Common Conditions", "Homeopathic care for adults and children, chosen around the whole person.")}
+${pageHero("Services", "Homeopathic Treatment in Rawalpindi for Common Conditions", "Homeopathic care for adults and children, chosen around the whole person.")}
 
   <section class="section">
     <div class="wrap split">
@@ -714,7 +721,7 @@ write("faqs.html", headHtml({
   extra: `\n<script type="application/ld+json">${JSON.stringify(ld)}</script>`,
 }) + header("faqs.html") + `
 <main id="top">
-${pageHero("FAQs", "Homeopathy Questions, Answered", "Quick answers about homeopathy, your first visit and booking.")}
+${pageHero("FAQs", "Homeopathy FAQs: First Visit, Fees and Online Consultation", "Quick answers about homeopathy, your first visit and booking.")}
 
   <section class="section">
     <div class="wrap">
@@ -734,7 +741,7 @@ write("reviews.html", headHtml({
   desc: "Read what patients say about unhurried, personal homeopathic care at Usama Homeo Clinic.",
 }) + header("reviews.html") + `
 <main id="top">
-${pageHero("Reviews", "What Our Patients Say", "Real conversations, honest care and time to be heard.")}
+${pageHero("Reviews", "Patient Reviews of Usama Homeo Clinic, Rawalpindi", "Real conversations, honest care and time to be heard.")}
 
   <section class="section">
     <div class="wrap">
@@ -756,7 +763,7 @@ write("contact.html", headHtml({
   desc: "Message Usama Homeo Clinic on WhatsApp or request a call back to book a homeopathic consultation in Rawalpindi or online.",
 }) + header("contact.html") + `
 <main id="top">
-${pageHero("Contact", "Contact Us", "Message us on WhatsApp or book online. We reply during clinic hours.")}
+${pageHero("Contact", "Contact Usama Homeo Clinic, Chakri Road, Rawalpindi", "Message us on WhatsApp or book online. We reply during clinic hours.")}
 
   <section class="section">
     <div class="wrap">
@@ -798,7 +805,7 @@ write("request-an-appointment.html", headHtml({
     ${leaf("l1")}${leaf("l2")}
     <div class="wrap">
       <span class="eyebrow">Request an appointment</span>
-      <h1>Start Your Homeopathic Consultation in Minutes</h1>
+      <h1>Request a Homeopathic Appointment in Rawalpindi or Online</h1>
       <p>Fill out this short form and we’ll confirm your time by WhatsApp or phone, answer your questions and match you with the right doctor.</p>
     </div>
   </section>
