@@ -300,7 +300,7 @@ const serviceCard = (s, full = false) => `
           <h3>${s.t}</h3>
           <p>${s.d}</p>${full ? `
           <ul>${s.b.map((x) => `<li>${x}</li>`).join("")}</ul>` : ""}
-          <a class="more" href="${full ? BOOK : "services.html#" + slug(s.t)}">${full ? "Book for " + s.t : "Learn more"} &rarr;</a>
+          <a class="more" href="${full ? BOOK + "?condition=" + encodeURIComponent(s.t) : "services.html#" + slug(s.t)}">${full ? "Book for " + s.t : "Learn more"} &rarr;</a>
         </article>`;
 
 const areaBlock = (a) => `
@@ -326,7 +326,7 @@ const write = (file, html) => {
 <meta property="og:image:alt" content="Usama Homeo Clinic, Rawalpindi: homeopathic care">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="${ogImg}">`);
-  html = html.replace(/href="(index|about|services|service-areas|faqs|reviews|contact|request-an-appointment).html(#[^"]*)?"/g, (m, p, h) => 'href="' + (p === "index" ? "/" : "/" + p) + (h || "") + '"');
+  html = html.replace(/href="(index|about|services|service-areas|faqs|reviews|contact|request-an-appointment).html(\?[^"#]*)?(#[^"]*)?"/g, (m, p, q, h) => 'href="' + (p === "index" ? "/" : "/" + p) + (q || "") + (h || "") + '"');
   html = html.replace(/<img [^>]*src="(assets[/]images[/][a-z0-9-]+)[.]jpg"[^>]*>/g, (m, p) => '<picture><source srcset="' + p + '.avif" type="image/avif">' + m + '</picture>');
   fs.writeFileSync(OUT + file, html); console.log("wrote", file, html.length);
 };
@@ -617,7 +617,7 @@ ${cta()}
 /* ======================= SERVICES ======================= */
 write("services.html", headHtml({
   title: "Homeopathic Treatment in Rawalpindi: Conditions We Treat",
-  desc: "Homeopathic treatment for sugar, blood pressure, asthma, joint pain, kidney stones, piles, skin problems and more, in Rawalpindi and online. See conditions and book.",
+  desc: "Homeopathic treatment for sugar, BP, asthma, kidney stones, piles, skin and joint pain in Rawalpindi and online across Pakistan. See conditions and book.",
 }) + header("services.html") + `
 <main id="top">
 ${pageHero("Services", "Homeopathic Treatment in Rawalpindi for Common Conditions", "Homeopathic care for adults and children, chosen around the whole person.")}

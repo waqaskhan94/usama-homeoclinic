@@ -333,6 +333,10 @@ function enhanceSelect(sel) {
 
   const visitCtl = enhanceSelect(document.getElementById("visit"));
   const timeCtl = enhanceSelect(timeSelect);
+  /* Arriving from a "Book for ..." button on Services: mention the condition in the message box */
+  const condition = new URLSearchParams(location.search).get("condition");
+  const messageBox = document.getElementById("message");
+  if (condition && messageBox && !messageBox.value) messageBox.value = `I would like to book a consultation for: ${condition.slice(0, 80)}.`;
   const datePicker = enhanceDate(dateInput, (d) => !(CLINIC.hours[d.getDay()] || []).length);
   /* Clicking the time field before a date is chosen opens the calendar and explains why */
   timeSelect.addEventListener("blocked", () => {
