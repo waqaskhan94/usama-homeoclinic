@@ -88,7 +88,7 @@ const FAQ = {
     ["What should I expect during my first visit?", "A focused, unhurried conversation. The doctor listens, asks questions, explains the approach and, where suitable, prescribes your first remedy. You will also learn how to take it and what to watch for."],
     ["What should I bring with me?", "Any previous reports, prescriptions and a list of the medicines or supplements you take. If you are coming for your child, bring their vaccination card and any recent test results."],
     ["How soon will I notice a change?", "It varies from person to person and depends on the condition. Recent complaints may respond sooner, while long-standing problems usually need more time and follow-up visits. Your doctor will tell you what to expect."],
-    ["Can I have an online consultation?", "Yes. Choose “Online video consultation” when you book and we will send a link once the appointment is confirmed. Remedies can be arranged by courier where possible."],
+    ["Can I have an online consultation?", "Yes. Choose “Online video consultation” when you book and we will send a link once the appointment is confirmed. The doctor consults in Urdu, English, Punjabi and Pashto. Remedies can be arranged by courier where possible."],
   ],
   "Booking and payment": [
     ["How do I book an appointment?", "Use the Request an Appointment page or message us on WhatsApp. Choose a day and time and we will confirm by message."],
@@ -235,7 +235,7 @@ const footer = () => `
     <div class="bk-step bk-detail">
       <img class="bk-photo" src="assets/images/doctor-wahid.jpg" alt="Dr. Wahid-ur-Rehman" width="84" height="84" loading="lazy">
       <h3>Dr. Wahid-ur-Rehman, BHMS</h3>
-      <p class="bk-desc">Book an <strong>online video consultation</strong> from anywhere in Pakistan or overseas, or a <strong>clinic appointment</strong> at our Rawalpindi clinic. The first visit takes about 20 to 25 minutes.<br><strong>Clinic Hours:</strong><br>Monday to Sunday<br>Morning: 10 AM to 1 PM<br>Evening (winter): 4 PM to 9 PM<br>Evening (summer): 6 PM to 10 PM<br>Friday: Closed<br><strong>Consultation fee: Rs. 1,000.</strong></p>
+      <p class="bk-desc">Book an <strong>online video consultation</strong> from anywhere in Pakistan or overseas, or a <strong>clinic appointment</strong> at our Rawalpindi clinic. The first visit takes about 20 to 25 minutes. Consultations in Urdu, English, Punjabi and Pashto.<br><strong>Clinic Hours:</strong><br>Monday to Sunday<br>Morning: 10 AM to 1 PM<br>Evening (winter): 4 PM to 9 PM<br>Evening (summer): 6 PM to 10 PM<br>Friday: Closed<br><strong>Consultation fee: Rs. 1,000.</strong></p>
       <button class="bk-wa" id="bk-wa" type="button">${svg("chat")}<span>Book Now on WhatsApp</span></button>
     </div>
   </div>
@@ -697,6 +697,7 @@ ${pageHero("Service Areas", "Homeopathic Clinic Serving Rawalpindi, Islamabad an
         <ul class="ticks">
           <li>Open to patients in every city and village of Pakistan</li>
           <li>Welcoming overseas Pakistanis and patients in any time zone</li>
+          <li>Consultations in Urdu, English, Punjabi and Pashto</li>
           <li>Follow-up visits by video or phone</li>
         </ul>
         <a class="btn" href="${BOOK}">Book an online consultation</a>
@@ -911,6 +912,7 @@ write("request-an-appointment.html", headHtml({
             <li>We confirm by WhatsApp or phone</li>
             <li>First visit of about 20 to 25 minutes with your doctor</li>
             <li>In-clinic (Rawalpindi) or online consultation</li>
+            <li>Consultations in Urdu, English, Punjabi and Pashto</li>
           </ul>
         </div>
         <figure class="photo wide"><img src="assets/images/doctor-tablet.jpg" alt="Doctor reviewing information on a tablet with a patient" width="1200" height="800" loading="lazy"></figure>
