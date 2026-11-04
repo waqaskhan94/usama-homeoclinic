@@ -112,12 +112,12 @@ const AREAS = [
 ];
 
 const REVIEWS = [
-  { t: "I never felt rushed.", q: "The doctor listened to everything, explained each step clearly, and I left feeling understood.", img: "av2", name: "Nasreen Akhtar", city: "Rawalpindi" },
-  { t: "A calm visit with my child.", q: "Bringing my daughter here was easy. The doctor was patient and kind, and the follow-up visits were helpful.", img: "av3", name: "Bilal Ahmed", city: "Islamabad" },
-  { t: "Booking was simple.", q: "The clinic replied on WhatsApp the same day. The whole visit felt calm and well organised.", img: "av7", name: "Usman Tariq", city: "Lahore" },
-  { t: "Finally, someone who asked about everything.", q: "From my sleep to my stress, nothing was brushed aside. I appreciated the honest advice, including when to see a specialist.", img: "av4", name: "Hassan Raza", city: "Karachi" },
-  { t: "Online consultation worked well for us.", q: "We live in another city, so the video consultation saved a long journey. The remedies reached us by courier.", img: "av5", name: "Imran Shah", city: "Peshawar" },
-  { t: "Gentle, respectful care.", q: "The doctor took time to explain everything to me in simple words. I felt comfortable throughout.", img: "av6", name: "Rukhsana Bibi", city: "Rawalpindi" },
+  { t: "I never felt rushed.", q: "The doctor listened to everything, explained each step clearly, and I left feeling understood.", img: "avatar-1", name: "Nasreen Akhtar", city: "Rawalpindi" },
+  { t: "A calm visit with my child.", q: "Bringing my daughter here was easy. The doctor was patient and kind, and the follow-up visits were helpful.", img: "avatar-2", name: "Bilal Ahmed", city: "Islamabad" },
+  { t: "Booking was simple.", q: "The clinic replied on WhatsApp the same day. The whole visit felt calm and well organised.", img: "avatar-3", name: "Usman Tariq", city: "Lahore" },
+  { t: "Finally, someone who asked about everything.", q: "From my sleep to my stress, nothing was brushed aside. I appreciated the honest advice, including when to see a specialist.", img: "avatar-4", name: "Hassan Raza", city: "Karachi" },
+  { t: "Online consultation worked well for us.", q: "We live in another city, so the video consultation saved a long journey. The remedies reached us by courier.", img: "avatar-5", name: "Imran Shah", city: "Peshawar" },
+  { t: "Gentle, respectful care.", q: "The doctor took time to explain everything to me in simple words. I felt comfortable throughout.", img: "avatar-6", name: "Rukhsana Bibi", city: "Rawalpindi" },
 ];
 
 /* ---------- partials ---------- */
@@ -289,7 +289,7 @@ const reviewCard = (r) => `
           <h3>${r.t}</h3>
           <blockquote>“${r.q}”</blockquote>
           <div class="author">
-            <img src="assets/images/${r.img}.jpg" alt="Portrait of ${r.name}" width="52" height="52" loading="lazy">
+            <img src="assets/images/${r.img}.svg" alt="" width="52" height="52" loading="lazy">
             <div><div class="name">${r.name}</div><div class="loc">${r.city}</div></div>
           </div>
         </article>`;
@@ -375,12 +375,12 @@ write("index.html", headHtml({
         </div>
         <p class="trust-text">Patients welcomed in clinic and online, from Rawalpindi and Islamabad to cities across Pakistan.</p>
         <div class="avatars" aria-hidden="true">
-          <img src="assets/images/av2.jpg" alt="" width="48" height="48">
-          <img src="assets/images/av3.jpg" alt="" width="48" height="48">
-          <img src="assets/images/av4.jpg" alt="" width="48" height="48">
-          <img src="assets/images/av5.jpg" alt="" width="48" height="48">
-          <img src="assets/images/av6.jpg" alt="" width="48" height="48">
-          <img src="assets/images/av7.jpg" alt="" width="48" height="48">
+          <img src="assets/images/avatar-1.svg" alt="" width="48" height="48">
+          <img src="assets/images/avatar-2.svg" alt="" width="48" height="48">
+          <img src="assets/images/avatar-4.svg" alt="" width="48" height="48">
+          <img src="assets/images/avatar-5.svg" alt="" width="48" height="48">
+          <img src="assets/images/avatar-6.svg" alt="" width="48" height="48">
+          <img src="assets/images/avatar-3.svg" alt="" width="48" height="48">
           <span>+2,900</span>
         </div>
       </div>
