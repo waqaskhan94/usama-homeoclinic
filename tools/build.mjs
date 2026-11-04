@@ -669,21 +669,40 @@ ${cta()}
 
 /* ======================= SERVICE AREAS ======================= */
 write("service-areas.html", headHtml({
-  title: "Homeopathic Clinic Service Areas: Rawalpindi & Islamabad",
-  desc: "Visit our homeopathic clinic on Chakri Road, Rawalpindi, from Islamabad and nearby cities, or consult online from anywhere in Pakistan.",
+  title: "Homeopathic Clinic Chakri Road Rawalpindi & Online Pakistan",
+  desc: "Visit our homeopathic clinic at Mohra Chaper Stop, Chakri Road, Rawalpindi, from Islamabad and nearby cities, or consult online from anywhere in Pakistan.",
 }) + header("service-areas.html") + `
 <main id="top">
-${pageHero("Service Areas", "Homeopathic Clinic Serving Rawalpindi, Islamabad and Nearby Cities", "Visit our Rawalpindi clinic, or consult by video from anywhere in Pakistan or abroad. Every patient is welcome.")}
+${pageHero("Service Areas", "Homeopathic Clinic on Chakri Road, Rawalpindi, Serving Everyone", "Visit our clinic at Mohra Chaper Stop, Chakri Road, or consult by video from anywhere in Pakistan or abroad. Every patient is welcome.")}
 
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <h2>Our clinic is in Rawalpindi. Our care is for everyone.</h2>
+        <h2>Our clinic is on Chakri Road, Rawalpindi. Our care is for everyone.</h2>
         <p>Patients visit us from Rawalpindi, Islamabad and nearby cities, and we consult online with patients in every part of Pakistan and overseas. Distance should never stop you from seeing a doctor.</p>
+        <p>The clinic is at <strong>Mohra Chaper Stop, Chakri Road, Rawalpindi</strong>. Please request an appointment before you come so we can confirm a time, or choose an online video consultation if you live far away.</p>
       </div>
       <div class="areas">${AREAS.map(areaBlock).join("")}
       </div>
       <p class="note-line">Wherever you live, you are welcome. Request an appointment and we will find the best way to see you.</p>
+      <div class="btn-row center"><a class="btn btn--gold" href="${BOOK}">Request an Appointment</a></div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Visiting the clinic</span>
+        <h2>Finding us and what to bring</h2>
+        <p>We are at Mohra Chaper Stop on Chakri Road, Rawalpindi. Parking is available along the main road.</p>
+      </div>
+      <ul class="ticks" style="max-width:640px;margin:0 auto 1.5rem">
+        <li><strong>Address:</strong> Mohra Chaper Stop, Chakri Road, Rawalpindi</li>
+        <li><strong>Parking:</strong> on the main road outside</li>
+        <li><strong>Before you come:</strong> request an appointment so we can confirm a time</li>
+        <li><strong>First visit:</strong> about 20 to 25 minutes, consultation fee Rs. 1,000</li>
+        <li><strong>Please bring:</strong> previous reports, prescriptions and a list of any medicines you take</li>
+      </ul>
       <div class="btn-row center"><a class="btn btn--gold" href="${BOOK}">Request an Appointment</a></div>
     </div>
   </section>
