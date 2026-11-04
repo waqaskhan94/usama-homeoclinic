@@ -94,7 +94,8 @@ const FAQ = {
     ["How do I book an appointment?", "Use the Request an Appointment page or message us on WhatsApp. Choose a day and time and we will confirm by message."],
     ["What if I need to cancel or change my appointment?", "Message us on WhatsApp at least a day before and we will find you another time."],
     ["What is the consultation fee and how can I pay?", "The consultation fee is Rs. 1,000. You can pay in cash at the clinic, and for online consultations we can share details for bank transfer, JazzCash or Easypaisa."],
-    ["Where are you located and which cities do you serve?", "Our clinic is in Rawalpindi, but we provide care to everyone. Patients from Rawalpindi, Islamabad and nearby cities visit us in person, and we consult online with patients across Pakistan and overseas. See the Service Areas page for details."],
+    ["Where are you located and which cities do you serve?", "Our clinic is in Rawalpindi, but we provide care to everyone. Patients from Rawalpindi, Islamabad and nearby cities visit us in person, and we consult online with patients across Pakistan and overseas. See the <a href=\"/service-areas\">Service Areas page</a> for details."],
+    ["What are your clinic hours and where exactly is the clinic?", "Our clinic is at Mohra Chaper Stop, Chakri Road, Rawalpindi, with parking on the main road. Morning hours are 10 AM to 1 PM. Evening hours are 4 PM to 9 PM in winter and 6 PM to 10 PM in summer. The clinic is closed on Fridays. Please <a href=\"/request-an-appointment\">request an appointment</a> first so we can confirm a time."],
   ],
 };
 const HOME_FAQ = [
@@ -732,7 +733,7 @@ ${cta()}
 const ld = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: Object.values(FAQ).flat().map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a.replace(/ \[Edit[^\]]*\]/, "") } })),
+  mainEntity: Object.values(FAQ).flat().map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a.replace(/ \[Edit[^\]]*\]/, "").replace(/<[^>]+>/g, "") } })),
 };
 write("faqs.html", headHtml({
   title: "Homeopathy FAQs: First Visit, Fees and Online Consultation",
