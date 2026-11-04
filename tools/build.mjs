@@ -211,6 +211,7 @@ const footer = () => `
           <li><a href="about.html">About Us</a></li>
           <li><a href="about.html#doctors">Our Doctor</a></li>
           <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
         </ul>
       </div>
     </div>
@@ -319,7 +320,8 @@ const write = (file, html) => {
 <meta property="og:url" content="${SITE}${urlPath}">
 <meta property="og:site_name" content="Usama Homeo Clinic">
 <meta property="og:type" content="website">`);
-  const ogImg = `${SITE}/assets/images/og-${file.replace(/.html$/, "")}.jpg`;
+  const ogBase = file.replace(/.html$/, "");
+  const ogImg = `${SITE}/assets/images/og-${fs.existsSync(OUT + "assets/images/og-" + ogBase + ".jpg") ? ogBase : "index"}.jpg`;
   html = html.replace('<meta property="og:image" content="assets/images/remedies-bottles.jpg">',
     `<meta property="og:image" content="${ogImg}">
 <meta property="og:image:width" content="1200">
@@ -327,7 +329,7 @@ const write = (file, html) => {
 <meta property="og:image:alt" content="Usama Homeo Clinic, Rawalpindi: homeopathic care">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="${ogImg}">`);
-  html = html.replace(/href="(index|about|services|service-areas|faqs|reviews|contact|request-an-appointment).html(\?[^"#]*)?(#[^"]*)?"/g, (m, p, q, h) => 'href="' + (p === "index" ? "/" : "/" + p) + (q || "") + (h || "") + '"');
+  html = html.replace(/href="(index|about|services|service-areas|faqs|reviews|contact|privacy|request-an-appointment).html(\?[^"#]*)?(#[^"]*)?"/g, (m, p, q, h) => 'href="' + (p === "index" ? "/" : "/" + p) + (q || "") + (h || "") + '"');
   html = html.replace(/<img [^>]*src="(assets[/]images[/][a-z0-9-]+)[.]jpg"[^>]*>/g, (m, p) => '<picture><source srcset="' + p + '.avif" type="image/avif">' + m + '</picture>');
   fs.writeFileSync(OUT + file, html); console.log("wrote", file, html.length);
 };
@@ -813,11 +815,53 @@ ${cta("Take the First Step Toward Feeling Better.")}
 </main>
 ` + footer());
 
+/* ======================= PRIVACY ======================= */
+write("privacy.html", headHtml({
+  title: "Privacy Policy | Usama Homeo Clinic",
+  desc: "How Usama Homeo Clinic, Rawalpindi, collects and uses the details you send through our appointment and call-back forms.",
+}) + header("") + `
+<main id="top">
+${pageHero("Privacy Policy", "Privacy Policy", "How we handle the details you send us. Last updated 4 November 2026.")}
+
+  <section class="section">
+    <div class="wrap" style="max-width:760px">
+      <h2>What we collect</h2>
+      <p style="margin-top:1rem">When you request an appointment or a call back, we collect the details you type into the form:</p>
+      <ul class="ticks">
+        <li>Your name and phone or WhatsApp number</li>
+        <li>The type of visit, your preferred date and time, and whether the visit is for a child or family member</li>
+        <li>Any message you choose to write</li>
+      </ul>
+      <p>We also note which page you used and which website you came from, and when you tap our WhatsApp or call buttons we record which button was used, so we can follow up. We do not need, and ask you not to send, detailed medical history through the form. Your doctor will ask for it at your visit.</p>
+
+      <h2>How we use it</h2>
+      <p style="margin-top:1rem">We use your details only to confirm your appointment, contact you by phone or WhatsApp, and answer your questions. We do not sell your information and we do not use it for advertising.</p>
+
+      <h2>Where it is stored</h2>
+      <p style="margin-top:1rem">Form requests are saved to a private Google Sheet used by the clinic, and an email alert is sent to the clinic. If you contact us on WhatsApp, the conversation is also subject to WhatsApp’s own privacy terms. We share your details with no one outside the clinic, except the services that carry the message (Google and WhatsApp).</p>
+
+      <h2>Cookies and third-party services</h2>
+      <p style="margin-top:1rem">This website does not set advertising or tracking cookies. Fonts are loaded from Google Fonts, which may record that your browser requested them.</p>
+
+      <h2>How long we keep it</h2>
+      <p style="margin-top:1rem">We keep appointment requests only as long as needed to arrange and follow up your care. You can ask us to delete your details at any time.</p>
+
+      <h2>Your choices</h2>
+      <p style="margin-top:1rem">To see, correct or delete the details we hold about you, call or message us on WhatsApp at <a href="tel:${TEL}">${PHONE}</a>.</p>
+
+      <h2>Changes to this policy</h2>
+      <p style="margin-top:1rem">If we change how we handle your information, we will update this page and its date.</p>
+    </div>
+  </section>
+${cta("Questions? We’re Happy to Help.")}
+</main>
+` + footer());
+
 /* ======================= REQUEST AN APPOINTMENT ======================= */
 const FLAG = `<svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" rx="2" fill="#01411c"/><rect width="6" height="16" rx="2" fill="#fff"/><rect x="4" width="2" height="16" fill="#fff"/><circle cx="15" cy="8" r="3.6" fill="#fff"/><circle cx="16.3" cy="7.3" r="3.2" fill="#01411c"/><path d="M18.6 4.6l.5 1.3 1.3.1-1 .9.3 1.3-1.1-.8-1.2.7.4-1.3-1-.9 1.3-.1z" fill="#fff"/></svg>`;
 write("request-an-appointment.html", headHtml({
-  title: "Request an Appointment | Usama Homeo Clinic",
-  desc: "Book a homeopathic consultation in Rawalpindi or online, or request a call back. Choose a day and time and we will confirm by message.",
+  title: "Book a Homeopathic Appointment | Usama Homeo Clinic",
+  desc: "Book a homeopathic consultation at Usama Homeo Clinic, Rawalpindi, or online. Choose a day and time and we will confirm by WhatsApp or phone.",
 }) + header("") + `
 <main id="top">
 
@@ -826,7 +870,7 @@ write("request-an-appointment.html", headHtml({
     <div class="wrap">
       <span class="eyebrow">Request an appointment</span>
       <h1>Request a Homeopathic Appointment in Rawalpindi or Online</h1>
-      <p>Fill out this short form and we’ll confirm your time by WhatsApp or phone, answer your questions and match you with the right doctor.</p>
+      <p>Fill out this short form and we’ll confirm your time by WhatsApp or phone and answer your questions.</p>
     </div>
   </section>
 
@@ -901,7 +945,7 @@ write("request-an-appointment.html", headHtml({
 
           <button class="btn btn--gold submit" type="submit" id="submit-btn"><span class="label">Request appointment</span>${svg("arrow")}<span class="spin" aria-hidden="true"></span></button>
           <p class="send-error" id="form-error" role="alert" hidden>Sorry, we couldn’t send your request just now. Please check your connection and try again, or message us on WhatsApp.</p>
-          <p class="secure">${svg("lock")}<span>Your information is confidential. We’ll only use it to confirm your appointment. Please don’t share detailed medical history here. The doctor will ask at your visit.</span></p>
+          <p class="secure">${svg("lock")}<span>Your information is confidential. We’ll only use it to confirm your appointment. Please don’t share detailed medical history here. The doctor will ask at your visit. See our <a href="privacy.html">Privacy Policy</a>.</span></p>
         </form>
 
         <div id="confirm" hidden tabindex="-1">
