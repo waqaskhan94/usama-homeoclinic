@@ -670,7 +670,7 @@ ${cta()}
 /* ======================= SERVICE AREAS ======================= */
 write("service-areas.html", headHtml({
   title: "Homeopathic Clinic Service Areas: Rawalpindi & Islamabad",
-  desc: "Visit our homeopathic clinic in Rawalpindi from Saddar, Bahria Town, DHA, Islamabad and nearby cities, or consult online from anywhere in Pakistan.",
+  desc: "Visit our homeopathic clinic on Chakri Road, Rawalpindi, from Islamabad and nearby cities, or consult online from anywhere in Pakistan.",
 }) + header("service-areas.html") + `
 <main id="top">
 ${pageHero("Service Areas", "Homeopathic Clinic Serving Rawalpindi, Islamabad and Nearby Cities", "Visit our Rawalpindi clinic, or consult by video from anywhere in Pakistan or abroad. Every patient is welcome.")}
