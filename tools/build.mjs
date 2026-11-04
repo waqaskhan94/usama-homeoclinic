@@ -522,8 +522,8 @@ ${cta()}
 
 /* ======================= ABOUT ======================= */
 write("about.html", headHtml({
-  title: "Dr. Wahid-ur-Rehman, BHMS | Homeopath in Rawalpindi",
-  desc: "Meet Dr. Wahid-ur-Rehman, BHMS, a homeopathic physician with 10+ years of practice in Rawalpindi. Clinic and online consultations for adults and children.",
+  title: "Dr. Wahid-ur-Rehman, BHMS | Usama Homeo Clinic Rawalpindi",
+  desc: "Meet Dr. Wahid-ur-Rehman, BHMS, homeopathic physician at Usama Homeo Clinic, Rawalpindi, with 10+ years of practice. Clinic and online consultations.",
   extra: `
 <script type="application/ld+json">{"@context":"https://schema.org","@type":["Physician","Person"],"name":"Dr. Wahid-ur-Rehman","honorificPrefix":"Dr.","knowsLanguage":["Urdu","English","Punjabi","Pashto"],"image":"https://usama-homeoclinic.pages.dev/assets/images/doctor-wahid.jpg","jobTitle":"Homeopathic Physician","description":"Homeopathic physician (BHMS) with over ten years of practice in Rawalpindi, seeing adults and children in clinic and online.","hasCredential":{"@type":"EducationalOccupationalCredential","credentialCategory":"degree","name":"BHMS"},"medicalSpecialty":"Homeopathy","worksFor":{"@type":"MedicalBusiness","name":"Usama Homeo Clinic","url":"https://usama-homeoclinic.pages.dev/"},"workLocation":{"@type":"Place","address":{"@type":"PostalAddress","streetAddress":"Mohra Chaper Stop, Chakri Road","addressLocality":"Rawalpindi","addressCountry":"PK"}},"url":"https://usama-homeoclinic.pages.dev/about"}</script>`,
 }) + header("about.html") + `
@@ -600,7 +600,7 @@ ${pageHero("About Us", "Dr. Wahid-ur-Rehman, Homeopathic Physician in Rawalpindi
       <div>
         <span class="eyebrow">How we work</span>
         <h2>Listening first, prescribing second</h2>
-        <p style="margin-top:1rem">We believe good care starts with a good conversation. Your doctor will ask about your symptoms, sleep, appetite, stress and history, then explain the remedy they have chosen and why.</p>
+        <p style="margin-top:1rem">We believe good care starts with a good conversation. Your doctor will ask about your symptoms, sleep, appetite, stress and history, then explain the remedy he has chosen and why.</p>
         <ul class="ticks">
           <li>A clear history before any prescription</li>
           <li>Plain-language explanations for you and your family</li>
