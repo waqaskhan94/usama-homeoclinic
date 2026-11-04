@@ -757,8 +757,8 @@ ${cta("Still Have Questions? Let’s Talk.")}
 
 /* ======================= REVIEWS ======================= */
 write("reviews.html", headHtml({
-  title: "Patient Reviews | Usama Homeo Clinic",
-  desc: "Read what patients say about unhurried, personal homeopathic care at Usama Homeo Clinic.",
+  title: "Patient Reviews of Dr. Wahid-ur-Rehman | Usama Homeo Clinic",
+  desc: "Read what patients say about their visits to Dr. Wahid-ur-Rehman at Usama Homeo Clinic, Rawalpindi, and online.",
 }) + header("reviews.html") + `
 <main id="top">
 ${pageHero("Reviews", "Patient Reviews of Usama Homeo Clinic, Rawalpindi", "Real conversations, honest care and time to be heard.")}
@@ -766,7 +766,7 @@ ${pageHero("Reviews", "Patient Reviews of Usama Homeo Clinic, Rawalpindi", "Real
   <section class="section">
     <div class="wrap">
       <div class="rating-box">
-        <div><div class="big"><span class="count" data-target="3000">3,000</span>+</div><div class="stars" aria-hidden="true">★★★★★</div></div>
+        <div><div class="big"><span class="count" data-target="3000">3,000</span>+</div></div>
         <p style="margin:0;color:var(--muted)">Patients welcomed in clinic and online, in Rawalpindi, Islamabad and cities across Pakistan.</p>
       </div>
       <div class="reviews-grid three">${REVIEWS.map(reviewCard).join("")}
