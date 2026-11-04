@@ -104,9 +104,9 @@ const HOME_FAQ = [
 ];
 
 const AREAS = [
-  { id: "rawalpindi", t: "Rawalpindi", r: "Clinic location", l: ["Saddar", "Satellite Town", "Bahria Town", "DHA Phase 1 & 2", "Chaklala Scheme III", "Westridge"] },
-  { id: "islamabad", t: "Islamabad", r: "Federal Capital", l: ["F-7", "G-9", "G-11", "I-8", "E-11", "Bahria Enclave"] },
-  { id: "nearby", t: "Nearby Cities", r: "Within easy reach", l: ["Taxila", "Wah Cantt", "Murree", "Gujar Khan", "Jhelum", "Attock"] },
+  { id: "rawalpindi", t: "Rawalpindi", r: "Clinic location", l: ["Mohra Chaper Stop, Chakri Road"] },
+  { id: "islamabad", t: "Islamabad", r: "Book a visit or consult online",l: ["F-7", "G-9", "G-11", "I-8", "E-11", "Bahria Enclave"] },
+  { id: "nearby", t: "Nearby Cities", r: "Book a visit or consult online",l: ["Taxila", "Wah Cantt", "Murree", "Gujar Khan", "Jhelum", "Attock"] },
   { id: "online", t: "Online, Anywhere", r: "Across Pakistan & overseas", l: ["Lahore", "Karachi", "Peshawar", "Faisalabad", "Multan", "Overseas Pakistanis"] },
 ];
 
@@ -334,9 +334,9 @@ const write = (file, html) => {
 /* ======================= HOME ======================= */
 write("index.html", headHtml({
   title: "Homeopathic Doctor Rawalpindi & Online | Usama Homeo Clinic",
-  desc: "Homeopathic doctor in Rawalpindi with online video consultation across Pakistan. 20 to 25 minute first visit with Dr. Wahid-ur-Rehman, BHMS.",
+  desc: "Homeopathic doctor in Rawalpindi with online video consultation across Pakistan. 20 to 25 minute first visit with Dr. Wahid-ur-Rehman, BHMS. Fee Rs. 1,000.",
   extra: `
-<script type="application/ld+json">{"@context":"https://schema.org","@type":["MedicalBusiness","LocalBusiness"],"name":"Usama Homeo Clinic","description":"Homeopathic clinic in Rawalpindi with in-clinic and online consultations across Pakistan.","url":"https://usama-homeoclinic.pages.dev/","telephone":"+923009813872","medicalSpecialty":"Homeopathy","image":"https://usama-homeoclinic.pages.dev/assets/images/remedies-bottles.jpg","address":{"@type":"PostalAddress","streetAddress":"Mohra Chaper Stop, Chakri Road","addressLocality":"Rawalpindi","addressRegion":"Punjab","addressCountry":"PK"},"areaServed":["Rawalpindi","Islamabad","Pakistan"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday"],"opens":"10:00","closes":"13:00"}]}</script>`,
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["MedicalBusiness","LocalBusiness"],"name":"Usama Homeo Clinic","description":"Homeopathic clinic in Rawalpindi with in-clinic and online consultations across Pakistan.","url":"https://usama-homeoclinic.pages.dev/","telephone":"+923009813872","medicalSpecialty":"Homeopathy","image":"https://usama-homeoclinic.pages.dev/assets/images/remedies-bottles.jpg","address":{"@type":"PostalAddress","streetAddress":"Mohra Chaper Stop, Chakri Road","addressLocality":"Rawalpindi","addressRegion":"Punjab","addressCountry":"PK"},"areaServed":["Rawalpindi","Islamabad","Pakistan"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","name":"Morning: 10 AM to 1 PM","dayOfWeek":["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday"],"opens":"10:00","closes":"13:00"},{"@type":"OpeningHoursSpecification","name":"Evening (winter): 4 PM to 9 PM","dayOfWeek":["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday"],"opens":"16:00","closes":"21:00"},{"@type":"OpeningHoursSpecification","name":"Evening (summer): 6 PM to 10 PM","dayOfWeek":["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday"],"opens":"18:00","closes":"22:00"}]}</script>`,
 }) + header("index.html") + `
 <main id="top">
 
@@ -371,7 +371,6 @@ write("index.html", headHtml({
       <div class="trust-card">
         <div class="trust-count">
           <div class="num"><span class="count" data-target="3000">3,000</span>+</div>
-          <div class="stars" aria-hidden="true">★★★★★</div>
         </div>
         <p class="trust-text">Patients welcomed in clinic and online, from Rawalpindi and Islamabad to cities across Pakistan.</p>
         <div class="avatars" aria-hidden="true">
