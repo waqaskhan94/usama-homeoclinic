@@ -779,8 +779,8 @@ ${cta("Ready to Feel Better? Book Your Consultation.")}
 
 /* ======================= CONTACT ======================= */
 write("contact.html", headHtml({
-  title: "Contact Us | Usama Homeo Clinic",
-  desc: "Message Usama Homeo Clinic on WhatsApp or request a call back to book a homeopathic consultation in Rawalpindi or online.",
+  title: "Contact Usama Homeo Clinic | Chakri Road, Rawalpindi",
+  desc: "Call or WhatsApp 0300-9813872 to book at Usama Homeo Clinic, Mohra Chaper Stop, Chakri Road, Rawalpindi. Clinic hours, map and online visits.",
 }) + header("contact.html") + `
 <main id="top">
 ${pageHero("Contact", "Contact Usama Homeo Clinic, Chakri Road, Rawalpindi", "Message us on WhatsApp or book online. We reply during clinic hours.")}
@@ -788,9 +788,9 @@ ${pageHero("Contact", "Contact Usama Homeo Clinic, Chakri Road, Rawalpindi", "Me
   <section class="section">
     <div class="wrap">
       <div class="contact-grid">
-        <article class="contact-card"><div class="ico">${svg("chat")}</div><h3>WhatsApp</h3><p><a href="${WA}" rel="noopener">Message us</a></p></article>
+        <article class="contact-card"><div class="ico">${svg("chat")}</div><h3>Call or WhatsApp</h3><p><a href="tel:${TEL}">${PHONE}</a><br><a href="${WA}" rel="noopener">Message us on WhatsApp</a></p></article>
         <article class="contact-card"><div class="ico">${svg("video")}</div><h3>Online Consultations</h3><p>By video, anywhere in Pakistan and overseas</p></article>
-        <article class="contact-card"><div class="ico">${svg("pin")}</div><h3>Visit</h3><p>Usama Homeo Clinic<br>Mohra Chaper Stop, Chakri Road, Rawalpindi</p></article>
+        <article class="contact-card"><div class="ico">${svg("pin")}</div><h3>Visit</h3><p>Usama Homeo Clinic<br>Mohra Chaper Stop, Chakri Road, Rawalpindi<br><a href="https://www.google.com/maps/search/?api=1&query=Mohra+Chaper+Stop+Chakri+Road+Rawalpindi" rel="noopener">Open in Google Maps</a></p></article>
       </div>
     </div>
   </section>
