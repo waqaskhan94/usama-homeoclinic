@@ -1072,3 +1072,8 @@ main li strong, main p strong, .detail li strong, .bk-desc strong { font-size: i
 p.crumbs, p.crumbs a { line-height: 1.5 !important; }
 .area h3 a, .area h3 a:visited { font-size: inherit !important; }
 .control .prefix { font-size: 14px !important; }
+
+/* Reviewer byline (hero) */
+.page-hero p.byline { margin-top: 0.9rem; font-size: 0.92rem; line-height: 1.6; }
+.byline a { color: inherit; text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s ease, text-decoration-color 0.2s ease; }
+.byline a:hover, .byline a:focus-visible { color: var(--teal-dark); text-decoration-thickness: 2px; }
