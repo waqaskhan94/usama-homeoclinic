@@ -1077,3 +1077,7 @@ p.crumbs, p.crumbs a { line-height: 1.5 !important; }
 .page-hero p.byline { margin-top: 0.9rem; font-size: 0.92rem; line-height: 1.6; }
 .byline a { color: inherit; text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s ease, text-decoration-color 0.2s ease; }
 .byline a:hover, .byline a:focus-visible { color: var(--teal-dark); text-decoration-thickness: 2px; }
+
+/* Home condition cards: keep the descriptive link on one line */
+main .card .more.more--one { font-size: 13px !important; }
+@media (min-width: 1024px) { main .card .more.more--one { white-space: nowrap; } }
