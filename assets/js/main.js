@@ -546,10 +546,12 @@ function enhanceSelect(sel) {
       lastRows = collectRows();
       try {
         await sendRequest();
+        track("generate_lead", { form: "call_back" });
         form.hidden = true;
         document.querySelector(".tabs").hidden = true;
         showSuccess();
       } catch (err) {
+        track("form_error", { form: "call_back" });
         formError.hidden = false;
       } finally {
         submitBtn.classList.remove("loading");
@@ -587,6 +589,9 @@ function enhanceSelect(sel) {
     data._honey = "";
     return data;
   }
+
+  /* Analytics hook: sends a GA4 event when gtag is on the page; does nothing otherwise. */
+  function track(name, params) { try { if (typeof window.gtag === "function") window.gtag("event", name, params || {}); } catch (e) { /* never block the form */ } }
 
   async function sendRequest() {
     const ctrl = new AbortController();
@@ -659,8 +664,10 @@ function enhanceSelect(sel) {
     finalBtn.classList.add("loading");
     try {
       await sendRequest();
+      track("generate_lead", { form: "appointment" });
       showSuccess();
     } catch (err) {
+      track("form_error", { form: "appointment" });
       sendError.hidden = false;
     } finally {
       finalBtn.classList.remove("loading");
