@@ -1081,3 +1081,12 @@ p.crumbs, p.crumbs a { line-height: 1.5 !important; }
 /* Home condition cards: keep the descriptive link on one line */
 main .card .more.more--one { font-size: 13px !important; }
 @media (min-width: 1024px) { main .card .more.more--one { white-space: nowrap; } }
+
+/* Trust card: count and text centred now that the avatar row is gone */
+.trust-card { text-align: center; justify-items: center; }
+@media (min-width: 900px) { .trust-card { grid-template-columns: auto auto; justify-content: center; } }
+
+/* Review cards: quote mark sits above the heading (no longer overlaps it) with even spacing */
+.review-card { padding: 1.75rem 1.75rem 1.6rem; gap: 1.1rem; }
+.review-card .quote-ico { position: static; width: 32px; height: 32px; margin-bottom: -0.2rem; flex: none; }
+.review-card .quote-ico { color: #BFE3FA; }

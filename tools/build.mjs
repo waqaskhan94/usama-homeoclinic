@@ -286,7 +286,6 @@ const faqItems = (items) => items.map(([q, a]) => `        <details open>
 const reviewCard = (r) => `
         <article class="review-card">
           ${svg("quote", "quote-ico")}
-          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
           <h3>${r.t}</h3>
           <blockquote>“${r.q}”</blockquote>
           <div class="author">
@@ -376,15 +375,6 @@ write("index.html", headHtml({
           <div class="num"><span class="count" data-target="3000">3,000</span>+</div>
         </div>
         <p class="trust-text">Patients welcomed in clinic and online, from Rawalpindi and Islamabad to cities across Pakistan.</p>
-        <div class="avatars" aria-hidden="true">
-          <img src="assets/images/avatar-1.svg" alt="" width="48" height="48">
-          <img src="assets/images/avatar-2.svg" alt="" width="48" height="48">
-          <img src="assets/images/avatar-4.svg" alt="" width="48" height="48">
-          <img src="assets/images/avatar-5.svg" alt="" width="48" height="48">
-          <img src="assets/images/avatar-6.svg" alt="" width="48" height="48">
-          <img src="assets/images/avatar-3.svg" alt="" width="48" height="48">
-          <span>+2,900</span>
-        </div>
       </div>
       <div class="trust-body">
         <h2>Natural Care, Tailored to You, Because Your Health Matters</h2>
