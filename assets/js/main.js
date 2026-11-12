@@ -169,8 +169,8 @@ function enhanceDate(input, isClosed) {
 
   function open(focusDay) {
     document.dispatchEvent(new CustomEvent("select-open", { detail: wrap }));
-    if (input.value) { const v = parseISO(input.value); view = new Date(v.getFullYear(), v.getMonth(), 1); }
-    else { const m = getMin(); view = new Date(m.getFullYear(), m.getMonth(), 1); }
+    /* Always open on the current month (today's date is highlighted); a chosen date still shows as selected when its month is in view. */
+    const m = getMin(); view = new Date(m.getFullYear(), m.getMonth(), 1);
     render();
     wrap.classList.add("open"); btn.setAttribute("aria-expanded", "true");
     raiseChain(wrap, true);
@@ -337,6 +337,7 @@ function enhanceSelect(sel) {
   const condition = new URLSearchParams(location.search).get("condition");
   const messageBox = document.getElementById("message");
   if (condition && messageBox && !messageBox.value) messageBox.value = `I would like to book a consultation for: ${condition.slice(0, 80)}.`;
+  dateInput.value = "";   // never start with a date restored by the browser (refresh / back button)
   const datePicker = enhanceDate(dateInput, (d) => !(CLINIC.hours[d.getDay()] || []).length);
   /* Clicking the time field before a date is chosen opens the calendar and explains why */
   timeSelect.addEventListener("blocked", () => {
